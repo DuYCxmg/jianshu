@@ -472,10 +472,10 @@ ul,ol,dl {
 }
 .note .post .article .meta-bottom .like .active {
     background:#ea6f5a!important;
-    color:#ffff;
+    color: #ffffff !important;
 }
 .note .post .article .meta-bottom .like .active .modal-wrap {
-    border-color:#ffff;
+    border-color: #ffffff !important;
 }
 .note .post .article .meta-bottom .like-group:hover {
     background:rgb(254,247,245);
