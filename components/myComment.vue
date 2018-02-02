@@ -32,6 +32,64 @@
                 </transition>
             </form>
             <!--留言的列表-->
+             <div id="normal-comment-list" class="normal-comment-list">
+                 <!--留言的排序-->
+                  <div class="top-title">
+                      <span>25条评论</span>
+                      <a href="javascript:void(0)" class="author-only">只看作者</a>
+                      <div class="pull-right">
+                          <a href="javascript:void(0)">按喜欢排序</a>
+                          <a href="javascript:void(0)">按时间正序</a>
+                          <a href="javascript:void(0)">按时间倒序</a>
+                      </div>
+                  </div>
+                 <!--留言的正文-->
+                 <div class="comment-placeholder" style="display:none;">
+                     <div class="author">
+                         <div class="avatar">
+                         </div>
+                         <div class="info">
+                             <div class="name"></div>
+                             <div class="meta"></div>
+                         </div>
+                     </div>
+                     <div class="title"></div>
+                     <div class="title animated-delay"></div>
+                     <div class="tool-group">
+                         <i class="fa fa-thumbs-o-up"></i>
+                         <div class="zan"></div>
+                         <i class="fa fa-comment-o"></i>
+                         <div class="like"></div>
+                     </div>
+                 </div>
+                 <div class="comment" v-for="(comment,index) in comments">
+                    <!--一级回复-->
+                     <div class="comment-content">
+                        <!--作者-->
+                         <div class="author">
+                                 <nuxt-link class="avatar" to="/u/123">
+                                     <img :src="comment.user.avatar" alt="">
+                                 </nuxt-link>
+                             <div class="info">
+                                 <nuxt-link to="/u/123" class="name">
+                                     {{comment.user.nick_name}}
+                                 </nuxt-link>
+                                 <div class="meta">
+                                     <span>
+                                         {{comment.floor}}楼 {{comment.create_at}}
+                                     </span>
+                                 </div>
+                             </div>
+                         </div>
+                         <div class="comment-wrap"></div>
+                         <!--正文-->
+                     </div>
+                     <!--二级回复-->
+                    <div class="sub-comment-list">
+
+                    </div>
+                 </div>
+             </div>
         </div>
     </div>
 </template>
@@ -45,7 +103,235 @@
                 //评论框下面的按钮显示参数
                 send:false,
                 showEmoji:false,
-                value:""
+                value:"",
+                //模拟的数据
+                comments:[
+                    {
+                        id:19935725,
+                        floor:2,
+                        liked:true,
+                        likes_count:12,
+                        node_id:23054702,
+                        user_id:6780849,
+                        user:{
+                            avatar:"/default-avatar.jpg",
+                            id:6780849,
+                            is_author:false,
+                            nick_name:"七岁就很拽",
+                            badge:null
+                        },
+                        create_at:"2018-01-25T09:38:14.000+08.00",
+                        children_count:3,
+                        compiled_content:"像我这样优秀的人" +
+                        "本该灿烂过一生" +
+                        "怎么二十多年到头来" +
+                        "还在人海里浮沉" +
+                        "像我这样聪明的人" +
+                        "早就告别了单纯" +
+                        "怎么还是用了一段情" +
+                        "去换一身伤痕" +
+                        "像我这样迷茫的人" +
+                        "像我这样寻找的人" +
+                        "像我这样碌碌无为的人" +
+                        "你还见过多少人" +
+                        "像我这样庸俗的人" +
+                        "从不喜欢装深沉" +
+                        "怎么偶尔听到老歌时" +
+                        "忽然也晃了神" +
+                        "像我这样懦弱的人" +
+                        "凡事都要留几分" +
+                        "怎么曾经也会为了谁" +
+                        "想过奋不顾身" +
+                        "像我这样迷茫的人" +
+                        "像我这样寻找的人" +
+                        "像我这样碌碌无为的人" +
+                        "你还见过多少人" +
+                        "像我这样孤单的人" +
+                        "像我这样傻的人" +
+                        "像我这样不甘平凡的人" +
+                        "世界上有多少人" +
+                        "像我这样莫名其妙的人" +
+                        "会不会有人心疼",
+                        children:[
+                            {
+                                id:20013397,
+                                user_id:2604707,
+                                user:{
+                                    id:2604707,
+                                    nickname:"Bowman_"
+                                },
+                                parent_id:19935725,
+                                created_at:"2018-01-27T13:19:11.000+08:00",
+                                compiled_content:"是你李大钊飘了，还是我陈独秀拿不动刀了"
+                            },
+                            {
+                                id:20013397,
+                                user_id:2604707,
+                                user:{
+                                    id:2604707,
+                                    nickname:"Bowman_"
+                                },
+                                parent_id:19935725,
+                                created_at:"2018-01-27T13:19:11.000+08:00",
+                                compiled_content:"是你李大钊飘了，还是我陈独秀拿不动刀了"
+                            },
+                            {
+                                id:20013397,
+                                user_id:2604707,
+                                user:{
+                                    id:2604707,
+                                    nickname:"Bowman_"
+                                },
+                                parent_id:19935725,
+                                created_at:"2018-01-27T13:19:11.000+08:00",
+                                compiled_content:"是你李大钊飘了，还是我陈独秀拿不动刀了"
+                            }
+                        ]
+
+                    },
+                    {
+                        id:19935726,
+                        floor:3,
+                        liked:true,
+                        likes_count:12,
+                        node_id:23054702,
+                        user_id:6780849,
+                        user:{
+                            avatar:"/default-avatar.jpg",
+                            id:6780849,
+                            is_author:false,
+                            nick_name:"八岁也很拽",
+                            badge:null
+                        },
+                        create_at:"2018-01-25T09:38:14.000+08.00",
+                        children_count:3,
+                        compiled_content: "怎么二十多年到头来" +
+                        "还在人海里浮沉" +
+                        "像我这样聪明的人" +
+                        "早就告别了单纯" +
+                        "怎么还是用了一段情" +
+                        "去换一身伤痕",
+                        children:[
+                            {
+                                id:20013397,
+                                user_id:2604707,
+                                user:{
+                                    id:2604707,
+                                    nickname:"Bowman_"
+                                },
+                                parent_id:19935725,
+                                created_at:"2018-01-27T13:19:11.000+08:00",
+                                compiled_content:"所以不要奢求别人的感同身受，所有的安慰不过是道德层面的关心，自己伤口还是要自己愈合，孤独也只好默默忍耐"
+                            },
+                            {
+                                id:20013397,
+                                user_id:2604707,
+                                user:{
+                                    id:2604707,
+                                    nickname:"Bowman_"
+                                },
+                                parent_id:19935725,
+                                created_at:"2018-01-27T13:19:11.000+08:00",
+                                compiled_content:"在深夜一个人的房间里，你自己不出点动静，就什么声音也没有"
+                            },
+                            {
+                                id:20013397,
+                                user_id:2604707,
+                                user:{
+                                    id:2604707,
+                                    nickname:"Bowman_"
+                                },
+                                parent_id:19935725,
+                                created_at:"2018-01-27T13:19:11.000+08:00",
+                                compiled_content:"你以为你习惯了孤独，其实只是习惯了以为。"
+                            }
+                        ]
+
+                    },
+                    {
+                        id:19935727,
+                        floor:4,
+                        liked:true,
+                        likes_count:12,
+                        node_id:23054702,
+                        user_id:6780849,
+                        user:{
+                            avatar:"/default-avatar.jpg",
+                            id:6780849,
+                            is_author:false,
+                            nick_name:"十岁还是拽",
+                            badge:null
+                        },
+                        create_at:"2018-01-25T09:38:14.000+08.00",
+                        children_count:3,
+                        compiled_content:"像我这样优秀的人" +
+                        "本该灿烂过一生" +
+                        "怎么二十多年到头来" +
+                        "还在人海里浮沉" +
+                        "像我这样聪明的人" +
+                        "早就告别了单纯" +
+                        "怎么还是用了一段情" +
+                        "去换一身伤痕" +
+                        "像我这样迷茫的人" +
+                        "像我这样寻找的人" +
+                        "像我这样碌碌无为的人",
+                        children:[
+                            {
+                                id:20013399,
+                                user_id:2604707,
+                                user:{
+                                    id:2604707,
+                                    nickname:"Bowman_"
+                                },
+                                parent_id:19935725,
+                                created_at:"2018-01-27T13:19:11.000+08:00",
+                                compiled_content:"你还见过多少人"
+                            },
+                            {
+                                id:20013395,
+                                user_id:2604707,
+                                user:{
+                                    id:2604707,
+                                    nickname:"Bowman_"
+                                },
+                                parent_id:19935725,
+                                created_at:"2018-01-27T13:19:11.000+08:00",
+                                compiled_content:"凡事都要留几分"
+                            },
+                            {
+                                id:20013345,
+                                user_id:2604707,
+                                user:{
+                                    id:2604707,
+                                    nickname:"Bowman_"
+                                },
+                                parent_id:19935725,
+                                created_at:"2018-01-27T13:19:11.000+08:00",
+                                compiled_content:"世界上有多少人"
+                            }
+                        ]
+
+                    },
+                    {
+                        id:19935728,
+                        floor:5,
+                        liked:true,
+                        likes_count:12,
+                        node_id:23054702,
+                        user_id:6780849,
+                        user:{
+                            avatar:"/default-avatar.jpg",
+                            id:6780849,
+                            is_author:false,
+                            nick_name:"十一特别拽",
+                            badge:null
+                        },
+                        create_at:"2018-01-25T09:38:14.000+08.00",
+                        children_count:0,
+                        compiled_content:"怎么感觉你思维忧伤的很发散啊"
+                    }
+
+                ]
             }
         },
         components:{
@@ -63,7 +349,7 @@
         }
     }
 </script>
-<style>
+<style scoped>
     .fade-enter-active,.fade-leave-active {
         opacity: 1;
         transition: .3s;
@@ -162,6 +448,7 @@
         border-radius:4px;
         box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
         z-index:10001;
+        background-color: white!important;
     }
     .arrow-up:after {
         content:'';
@@ -175,5 +462,46 @@
         border-top: 1px solid #d9d9d9;
         background:#fff;
         transform: translate3d(0,-50%,0) rotate(45deg);
+    }
+    .note .post .comment-list .normal-comment-list{
+        margin-top: 30px;
+    }
+    .note .post .comment-list .top-title{
+        padding-bottom:20px;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .note .post .comment-list .top-title span{
+        font-size: 17px;
+        font-weight: 700;
+    }
+    .note .post .comment-list .top-title .author-only{
+        font-size: 12px;
+        padding: 4px 8px;
+        border: 1px solid #e1e1e1;
+        border-radius: 12px;
+        margin-left: 10px;
+        color: #969696!important;
+    }
+    .note .post .comment-list .top-title .pull-right a{
+        margin-left: 10px;
+        font-size: 12px;
+        color:#969696!important;
+    }
+    .note .post .comment-list .top-title .pull-right a.active{
+        color:#2f2f2f!important;
+    }
+    .note .post .comment-list .comment{
+        padding: 20px 0 30px 0;
+        border-bottom: 1px solid #f0f0f0;
+    }
+    .note .post .comment-list .info{
+        display: inline-block;
+    }
+    .note .post .comment-list .info .name{
+        font-size: 15px;
+    }
+    .note .post .comment-list .info .meta{
+        font-size: 12px;
+        color: #969696;
     }
 </style>
