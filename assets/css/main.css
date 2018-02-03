@@ -634,8 +634,17 @@ ul,ol,dl {
 }
 
 
-
-
+/*文章页面媒体查询*/
+@media (max-width: 785px) {
+    .note .post {
+        margin: 0 74px;
+    }
+}
+@media (max-width: 750px) {
+    body{
+        overflow-x:hidden;
+    }
+}
 
 
 

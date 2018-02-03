@@ -76,17 +76,48 @@
                                  </nuxt-link>
                                  <div class="meta">
                                      <span>
-                                         {{comment.floor}}楼 {{comment.create_at}}
+                                         {{comment.floor}}楼 {{comment.create_at | formatDate}}
                                      </span>
                                  </div>
                              </div>
                          </div>
-                         <div class="comment-wrap"></div>
-                         <!--正文-->
+                         <div class="comment-wrap">
+                             <p>{{comment.compiled_content}}</p>
+                             <div class="tool-group">
+                                 <a href="javascript:void(0)">
+                                     <i class="fa fa-thumbs-o-up">{{comment.likes_count}}人点赞</i>
+                                 </a>
+                                 <a href="javascript:void(0)">
+                                     <i class="fa fa-comment-o">&nbsp;回复</i>
+                                 </a>
+                             </div>
+                         </div>
                      </div>
                      <!--二级回复-->
-                    <div class="sub-comment-list">
-
+                    <div class="sub-comment-list" v-if="comment.children.length != 0">
+                        <div :id="'comment-'+subComment.id"
+                             v-for="(subComment,index) in comment.children"
+                             class="sub-comment">
+                               <p>
+                                   <nuxt-link to="/u/123">
+                                       {{subComment.user.nickname}}
+                                   </nuxt-link>:
+                                   <span>{{subComment.compiled_content}}</span>
+                               </p>
+                             <div class="sub-tool-group">
+                                  <span>{{subComment.created_at | formatDate}}</span>
+                                 <a href="javascript:void(0)">
+                                     <i class="fa fa-comment-o"></i>
+                                     <span>回复</span>
+                                 </a>
+                             </div>
+                        </div>
+                        <div class="more-comment">
+                            <a href="javascript:void(0)" class="add-comment-btn">
+                                <i class="fa fa-pencil"></i>
+                                <span>添加新评论</span>
+                            </a>
+                        </div>
                     </div>
                  </div>
              </div>
@@ -122,36 +153,10 @@
                         },
                         create_at:"2018-01-25T09:38:14.000+08.00",
                         children_count:3,
-                        compiled_content:"像我这样优秀的人" +
-                        "本该灿烂过一生" +
-                        "怎么二十多年到头来" +
-                        "还在人海里浮沉" +
-                        "像我这样聪明的人" +
-                        "早就告别了单纯" +
-                        "怎么还是用了一段情" +
-                        "去换一身伤痕" +
-                        "像我这样迷茫的人" +
-                        "像我这样寻找的人" +
-                        "像我这样碌碌无为的人" +
-                        "你还见过多少人" +
-                        "像我这样庸俗的人" +
-                        "从不喜欢装深沉" +
-                        "怎么偶尔听到老歌时" +
-                        "忽然也晃了神" +
-                        "像我这样懦弱的人" +
-                        "凡事都要留几分" +
-                        "怎么曾经也会为了谁" +
-                        "想过奋不顾身" +
-                        "像我这样迷茫的人" +
-                        "像我这样寻找的人" +
-                        "像我这样碌碌无为的人" +
-                        "你还见过多少人" +
-                        "像我这样孤单的人" +
-                        "像我这样傻的人" +
-                        "像我这样不甘平凡的人" +
-                        "世界上有多少人" +
-                        "像我这样莫名其妙的人" +
-                        "会不会有人心疼",
+                        compiled_content:"像我这样优秀的人," +
+                        "本该灿烂过一生," +
+                        "怎么二十多年到头来," +
+                        "还在人海里浮沉.",
                         children:[
                             {
                                 id:20013397,
@@ -205,12 +210,12 @@
                         },
                         create_at:"2018-01-25T09:38:14.000+08.00",
                         children_count:3,
-                        compiled_content: "怎么二十多年到头来" +
-                        "还在人海里浮沉" +
-                        "像我这样聪明的人" +
-                        "早就告别了单纯" +
-                        "怎么还是用了一段情" +
-                        "去换一身伤痕",
+                        compiled_content: "怎么二十多年到头来," +
+                        "还在人海里浮沉," +
+                        "像我这样聪明的人," +
+                        "早就告别了单纯," +
+                        "怎么还是用了一段情," +
+                        "去换一身伤痕.",
                         children:[
                             {
                                 id:20013397,
@@ -264,17 +269,9 @@
                         },
                         create_at:"2018-01-25T09:38:14.000+08.00",
                         children_count:3,
-                        compiled_content:"像我这样优秀的人" +
-                        "本该灿烂过一生" +
-                        "怎么二十多年到头来" +
-                        "还在人海里浮沉" +
-                        "像我这样聪明的人" +
-                        "早就告别了单纯" +
-                        "怎么还是用了一段情" +
-                        "去换一身伤痕" +
-                        "像我这样迷茫的人" +
-                        "像我这样寻找的人" +
-                        "像我这样碌碌无为的人",
+                        compiled_content: "像我这样迷茫的人,"+
+                        "像我这样寻找的人," +
+                        "像我这样碌碌无为的人.",
                         children:[
                             {
                                 id:20013399,
@@ -328,7 +325,8 @@
                         },
                         create_at:"2018-01-25T09:38:14.000+08.00",
                         children_count:0,
-                        compiled_content:"怎么感觉你思维忧伤的很发散啊"
+                        compiled_content:"怎么感觉你思维忧伤的很发散啊",
+                        children:[]
                     }
 
                 ]
@@ -346,7 +344,26 @@
             sendData:function(){
                 console.log("发送value值发送给后台")
             }
-        }
+        },
+      //过滤器
+      filters:{
+         formatDate:function(index){
+             var date =index.slice(0,10).replace(/-/g,".");
+             var time =index.slice(11,16);
+             index =date+" "+time;
+             return  index;
+             // let date =new Date(index);
+             // let year =date.getFullYear();
+             // let month =date.getMonth()+1;
+             // let day=date.getDate();
+             // let hour=date.getHours();
+             // let minute=date.getMinutes();
+             // function fillZero(num){
+             //     return  num>10?num:"0"+num;
+             // }
+             // return fillZero(year)+"."+fillZero(month)+"."+fillZero(day)+" "+fillZero(hour)+":"+fillZero(minute)
+         }
+      }
     }
 </script>
 <style scoped>
@@ -496,6 +513,7 @@
     }
     .note .post .comment-list .info{
         display: inline-block;
+        vertical-align: middle;
     }
     .note .post .comment-list .info .name{
         font-size: 15px;
@@ -503,5 +521,60 @@
     .note .post .comment-list .info .meta{
         font-size: 12px;
         color: #969696;
+    }
+    .note .post .comment-list .comment p{
+        font-size: 16px;
+        margin: 10px 0;
+        line-height: 1.5;
+        word-break: break-word!important;
+    }
+    .note .post .comment-list .comment .tool-group a{
+        color: #969696!important;
+        margin-right: 10px;
+    }
+    .note .post .comment-list .comment .tool-group a i{
+        font-size: 15px;
+        margin-right: 5px;
+    }
+    .note .post .comment-list .comment a span{
+        font-size: 14px;
+    }
+    .note .post .comment-list .sub-comment-list{
+        border-left:2px solid #d9d9d9;
+        margin: 20px;
+        padding-left: 20px;
+    }
+    .note .post .comment-list .sub-comment{
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        border-bottom: 1px dashed #f0f0f0;
+    }
+    .note .post .comment-list .sub-comment p{
+        font-size: 14px;
+        line-height: 1.5;
+        margin-bottom: 5px;
+    }
+    .note .post .comment-list .sub-comment p a{
+        color: #3194d0!important;
+    }
+    .note .post .comment-list .sub-comment .sub-tool-group {
+        font-size: 12px;
+        color: #969696;
+    }
+    .note .post .comment-list .sub-comment  .sub-tool-group  a{
+        margin-left: 10px;
+    }
+    .note .post .comment-list .sub-comment .sub-tool-group a i{
+        margin-right: 5px;
+    }
+    .note .post .comment-list .more-comment{
+        font-size: 14px;
+        color: #969696;
+    }
+    .note .post .comment-list .more-comment a:hover{
+        color: #333!important;
+    }
+    .note .post .comment-list .more-comment i{
+        margin-right: 5px;
     }
 </style>
