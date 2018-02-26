@@ -6,7 +6,7 @@
                 <nuxt-link class="avatar" to="/u/213">
                     <img src="../assets/img/default-avatar.jpg">
                 </nuxt-link>
-                <textarea @focus="sendCommentBtn=true" placeholder="写下你的评论" v-model="commentData"></textarea>
+                <textarea @focus="sendCommentBtn=true" placeholder="写下你的评论" v-focus v-model="commentData"></textarea>
                 <transition :duration="200" name="fade">
                     <div v-if="sendCommentBtn" class="write-function-block clearfix">
                         <div class="emoji-modal-wrap">
@@ -94,15 +94,19 @@
                                         {{comment.likes_count}}人点赞
                                     </span>
                                 </a>
-                                <a href="javascript:void(0)">
+                                <a href="javascript:void(0)" @click="showSubCommentForm(index)">
                                     <i class="fa fa-comment-o"></i>
                                     <span>回复</span>
                                 </a>
                             </div>
                         </div>
                     </div>
-                    <div v-if="comment.children.length != 0" class="sub-comment-list">
-                        <div v-for="(subComment,index) in comment.children" :id="'comment-' + subComment.id" class="sub-comment">
+                    <div class="sub-comment-list">
+                        <div  :key="nindex"
+                                v-show="comment.children.length != 0"
+                              v-for="(subComment,nindex) in comment.children"
+                              :id="'comment-' + subComment.id"
+                             class="sub-comment">
                             <p>
                                 <nuxt-link to="/u/123">
                                     {{subComment.user.nick_name}}
@@ -112,8 +116,8 @@
                             </p>
                             <div class="sub-tool-group">
                                 <span>{{subComment.create_at|formatDate}}</span>
-                                <a href="javascript:void(0)">
-                                    <i class="fa fa-comment-o"></i>
+                                <a href="javascript:void(0)" @click="showSubCommentAtName(nindex,index,subComment.user.nick_name)">
+                                    <i class="fa fa-comment-o" ></i>
                                     <span>回复</span>
                                 </a>
                             </div>
@@ -127,7 +131,9 @@
                         <!--要显示的表单-->
                         <transition :duration="200" name="fade">
                             <form v-if="activeIndex.includes(index)" class="new-comment">
-                                <textarea v-focus placeholder="写下你的评论" v-model="subCommentList[index]"></textarea>
+                                <textarea v-focus placeholder="写下你的评论"
+                                          ref="content"
+                                          v-model="subCommentList[index]"></textarea>
                                 <div class="write-function-block clearfix">
                                     <div class="emoji-modal-wrap">
                                         <a href="javascript:void(0)" class="emoji" @click="showSubEmoji(index)">
@@ -315,9 +321,29 @@
                     this.activeIndex.push(value);
                 }
             },
+            //二级回复
+            showSubCommentAtName:function(nvalue,value,name){
+                if(this.oldIndex == nvalue){
+                  //第二次点击
+                  this.activeIndex.splice(this.activeIndex.indexOf(value),1);
+                  this.subCommentList[value]="";
+                  this.oldIndex=null;
+                }else{
+                  //第一次点击
+                    this.subCommentList[value]="";
+                    if(!this.activeIndex.includes(value)){
+                        this.activeIndex.push(value);
+                    }
+                    this.emojiIndex=[];
+                    this.subCommentList[value] +=`@${name}`;
+                    this.oldIndex=nvalue;
+                }
+            },
             sendSubCommentData:function(value){
                 let index = this.activeIndex.indexOf(value);
                 this.activeIndex.splice(index,1);
+                //value是下标
+                console.log(this.subCommentList[value]);
             },
             closeSubComment:function(value){
                 let index = this.activeIndex.indexOf(value);
@@ -342,6 +368,8 @@
                 this.subCommentList[index] +=code;
                //关掉emoji、
                 this.emojiIndex=[];
+               //聚焦一下
+               this.$refs.content[index].focus();
             }
         },
         components:{
@@ -363,6 +391,11 @@
                 }
             }
         },
+        watch:{
+            subCommentList:function(val){
+                console.log(val);
+            }
+        }
     }
 </script>
 <style>
@@ -385,6 +418,7 @@
         position:relative;
         margin-left:48px;
         margin-bottom:20px;
+        padding:5px 0;
     }
     .note .post .comment-list .avatar {
         width:38px;
@@ -543,7 +577,7 @@
     .note .post .comment-list .sub-comment-list {
         border-left:2px solid #d9d9d9;
         margin-top:20px;
-        padding:5px 0 5px 20px;
+        padding:0 0 0 20px;
     }
     .note .post .comment-list .sub-comment {
         padding-bottom:15px;
