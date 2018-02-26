@@ -229,8 +229,17 @@
                             <img src="../assets/img/5.png">
                         </nuxt-link>
                     </div>
-                    <nuxt-link to="/" class="download">
+                    <nuxt-link to="/" class="download" style="overflow: hidden">
                         <!--自己添加二维码-->
+                       <div style="float: left;margin-right: 5px">
+                           <img src="../assets/img/my-weixin.jpg" style="width: 80px;border-radius: 10px;" alt="">
+                       </div>
+                        <p style="margin-top: 10px;margin-bottom: 0">
+                            扫描我的二维码加微信
+                        </p>
+                        <span style="font-size: 14px;color: gray;padding-left: 3px">
+                            随时随地发现和创作内容
+                        </span>
                     </nuxt-link>
                     <div class="recommend-author">
                         <div class="title">
