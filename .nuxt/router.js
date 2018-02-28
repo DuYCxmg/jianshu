@@ -3,28 +3,29 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
+const _98ccd8fa = () => import('..\\pages\\collectArticle.vue' /* webpackChunkName: "pages_collectArticle" */).then(m => m.default || m)
 const _28341424 = () => import('..\\pages\\sign-up.vue' /* webpackChunkName: "pages_sign-up" */).then(m => m.default || m)
+const _139dbdae = () => import('..\\pages\\sign-in.vue' /* webpackChunkName: "pages_sign-in" */).then(m => m.default || m)
+const _1492cb42 = () => import('..\\pages\\myHome.vue' /* webpackChunkName: "pages_myHome" */).then(m => m.default || m)
+const _5c22bb00 = () => import('..\\pages\\myHome\\index.vue' /* webpackChunkName: "pages_myHome_index" */).then(m => m.default || m)
+const _4aa2248d = () => import('..\\pages\\myHome\\comment.vue' /* webpackChunkName: "pages_myHome_comment" */).then(m => m.default || m)
+const _616f8784 = () => import('..\\pages\\myHome\\Article.vue' /* webpackChunkName: "pages_myHome_Article" */).then(m => m.default || m)
+const _4e5a1e7b = () => import('..\\pages\\myHome\\hot.vue' /* webpackChunkName: "pages_myHome_hot" */).then(m => m.default || m)
 const _b157b96e = () => import('..\\pages\\setting.vue' /* webpackChunkName: "pages_setting" */).then(m => m.default || m)
+const _c5795970 = () => import('..\\pages\\follow.vue' /* webpackChunkName: "pages_follow" */).then(m => m.default || m)
+const _86df7f8c = () => import('..\\pages\\follow\\index.vue' /* webpackChunkName: "pages_follow_index" */).then(m => m.default || m)
+const _d9f9fb90 = () => import('..\\pages\\follow\\specialRecome.vue' /* webpackChunkName: "pages_follow_specialRecome" */).then(m => m.default || m)
+const _9fc0222c = () => import('..\\pages\\follow\\authorRecome.vue' /* webpackChunkName: "pages_follow_authorRecome" */).then(m => m.default || m)
+const _14702a58 = () => import('..\\pages\\likeArticle.vue' /* webpackChunkName: "pages_likeArticle" */).then(m => m.default || m)
+const _92b351ac = () => import('..\\pages\\likeArticle\\index.vue' /* webpackChunkName: "pages_likeArticle_index" */).then(m => m.default || m)
+const _72cc5e68 = () => import('..\\pages\\likeArticle\\other.vue' /* webpackChunkName: "pages_likeArticle_other" */).then(m => m.default || m)
 const _0d5ad5ac = () => import('..\\pages\\news.vue' /* webpackChunkName: "pages_news" */).then(m => m.default || m)
 const _62cf7c18 = () => import('..\\pages\\news\\index.vue' /* webpackChunkName: "pages_news_index" */).then(m => m.default || m)
 const _204e6bd5 = () => import('..\\pages\\news\\request.vue' /* webpackChunkName: "pages_news_request" */).then(m => m.default || m)
 const _bd83117e = () => import('..\\pages\\news\\like.vue' /* webpackChunkName: "pages_news_like" */).then(m => m.default || m)
 const _546589db = () => import('..\\pages\\news\\follow.vue' /* webpackChunkName: "pages_news_follow" */).then(m => m.default || m)
 const _b0920566 = () => import('..\\pages\\news\\message.vue' /* webpackChunkName: "pages_news_message" */).then(m => m.default || m)
-const _14702a58 = () => import('..\\pages\\likeArticle.vue' /* webpackChunkName: "pages_likeArticle" */).then(m => m.default || m)
-const _92b351ac = () => import('..\\pages\\likeArticle\\index.vue' /* webpackChunkName: "pages_likeArticle_index" */).then(m => m.default || m)
-const _72cc5e68 = () => import('..\\pages\\likeArticle\\other.vue' /* webpackChunkName: "pages_likeArticle_other" */).then(m => m.default || m)
-const _c5795970 = () => import('..\\pages\\follow.vue' /* webpackChunkName: "pages_follow" */).then(m => m.default || m)
-const _86df7f8c = () => import('..\\pages\\follow\\index.vue' /* webpackChunkName: "pages_follow_index" */).then(m => m.default || m)
-const _d9f9fb90 = () => import('..\\pages\\follow\\specialRecome.vue' /* webpackChunkName: "pages_follow_specialRecome" */).then(m => m.default || m)
-const _9fc0222c = () => import('..\\pages\\follow\\authorRecome.vue' /* webpackChunkName: "pages_follow_authorRecome" */).then(m => m.default || m)
-const _98ccd8fa = () => import('..\\pages\\collectArticle.vue' /* webpackChunkName: "pages_collectArticle" */).then(m => m.default || m)
-const _1492cb42 = () => import('..\\pages\\myHome.vue' /* webpackChunkName: "pages_myHome" */).then(m => m.default || m)
-const _5c22bb00 = () => import('..\\pages\\myHome\\index.vue' /* webpackChunkName: "pages_myHome_index" */).then(m => m.default || m)
-const _4aa2248d = () => import('..\\pages\\myHome\\comment.vue' /* webpackChunkName: "pages_myHome_comment" */).then(m => m.default || m)
-const _616f8784 = () => import('..\\pages\\myHome\\Article.vue' /* webpackChunkName: "pages_myHome_Article" */).then(m => m.default || m)
-const _4e5a1e7b = () => import('..\\pages\\myHome\\hot.vue' /* webpackChunkName: "pages_myHome_hot" */).then(m => m.default || m)
-const _139dbdae = () => import('..\\pages\\sign-in.vue' /* webpackChunkName: "pages_sign-in" */).then(m => m.default || m)
+const _991fd708 = () => import('..\\pages\\u\\_id.vue' /* webpackChunkName: "pages_u__id" */).then(m => m.default || m)
 const _23fe423e = () => import('..\\pages\\p\\_id.vue' /* webpackChunkName: "pages_p__id" */).then(m => m.default || m)
 const _1ce75dea = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
 
@@ -76,14 +77,87 @@ export function createRouter () {
     scrollBehavior,
     routes: [
 		{
+			path: "/collectArticle",
+			component: _98ccd8fa,
+			name: "collectArticle"
+		},
+		{
 			path: "/sign-up",
 			component: _28341424,
 			name: "sign-up"
 		},
 		{
+			path: "/sign-in",
+			component: _139dbdae,
+			name: "sign-in"
+		},
+		{
+			path: "/myHome",
+			component: _1492cb42,
+			children: [
+				{
+					path: "",
+					component: _5c22bb00,
+					name: "myHome"
+				},
+				{
+					path: "comment",
+					component: _4aa2248d,
+					name: "myHome-comment"
+				},
+				{
+					path: "Article",
+					component: _616f8784,
+					name: "myHome-Article"
+				},
+				{
+					path: "hot",
+					component: _4e5a1e7b,
+					name: "myHome-hot"
+				}
+			]
+		},
+		{
 			path: "/setting",
 			component: _b157b96e,
 			name: "setting"
+		},
+		{
+			path: "/follow",
+			component: _c5795970,
+			children: [
+				{
+					path: "",
+					component: _86df7f8c,
+					name: "follow"
+				},
+				{
+					path: "specialRecome",
+					component: _d9f9fb90,
+					name: "follow-specialRecome"
+				},
+				{
+					path: "authorRecome",
+					component: _9fc0222c,
+					name: "follow-authorRecome"
+				}
+			]
+		},
+		{
+			path: "/likeArticle",
+			component: _14702a58,
+			children: [
+				{
+					path: "",
+					component: _92b351ac,
+					name: "likeArticle"
+				},
+				{
+					path: "other",
+					component: _72cc5e68,
+					name: "likeArticle-other"
+				}
+			]
 		},
 		{
 			path: "/news",
@@ -117,77 +191,9 @@ export function createRouter () {
 			]
 		},
 		{
-			path: "/likeArticle",
-			component: _14702a58,
-			children: [
-				{
-					path: "",
-					component: _92b351ac,
-					name: "likeArticle"
-				},
-				{
-					path: "other",
-					component: _72cc5e68,
-					name: "likeArticle-other"
-				}
-			]
-		},
-		{
-			path: "/follow",
-			component: _c5795970,
-			children: [
-				{
-					path: "",
-					component: _86df7f8c,
-					name: "follow"
-				},
-				{
-					path: "specialRecome",
-					component: _d9f9fb90,
-					name: "follow-specialRecome"
-				},
-				{
-					path: "authorRecome",
-					component: _9fc0222c,
-					name: "follow-authorRecome"
-				}
-			]
-		},
-		{
-			path: "/collectArticle",
-			component: _98ccd8fa,
-			name: "collectArticle"
-		},
-		{
-			path: "/myHome",
-			component: _1492cb42,
-			children: [
-				{
-					path: "",
-					component: _5c22bb00,
-					name: "myHome"
-				},
-				{
-					path: "comment",
-					component: _4aa2248d,
-					name: "myHome-comment"
-				},
-				{
-					path: "Article",
-					component: _616f8784,
-					name: "myHome-Article"
-				},
-				{
-					path: "hot",
-					component: _4e5a1e7b,
-					name: "myHome-hot"
-				}
-			]
-		},
-		{
-			path: "/sign-in",
-			component: _139dbdae,
-			name: "sign-in"
+			path: "/u/:id?",
+			component: _991fd708,
+			name: "u-id"
 		},
 		{
 			path: "/p/:id?",
