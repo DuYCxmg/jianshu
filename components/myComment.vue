@@ -94,7 +94,7 @@
                                         {{comment.likes_count}}人点赞
                                     </span>
                                 </a>
-                                <a href="javascript:void(0)" @click="showSubCommentForm(index)">
+                                <a href="javascript:void(0)" @click="showSubCommentForm(index,comment.id,'')">
                                     <i class="fa fa-comment-o"></i>
                                     <span>回复</span>
                                 </a>
@@ -116,21 +116,21 @@
                             </p>
                             <div class="sub-tool-group">
                                 <span>{{subComment.create_at|formatDate}}</span>
-                                <a href="javascript:void(0)" @click="showSubCommentAtName(nindex,index,subComment.user.nick_name)">
+                                <a href="javascript:void(0)" @click="showSubCommentForm(index,subComment.id,subComment.user.nick_name)">
                                     <i class="fa fa-comment-o" ></i>
                                     <span>回复</span>
                                 </a>
                             </div>
                         </div>
                         <div class="sub-comment more-comment">
-                            <a class="add-comment-btn" @click="showSubCommentForm(index)" href="javascript:void(0)">
+                            <a class="add-comment-btn" @click="showSubCommentForm(index,null,'')" href="javascript:void(0)">
                                 <i class="fa fa-pencil"></i>
                                 <span>添加新评论</span>
                             </a>
                         </div>
                         <!--要显示的表单-->
                         <transition :duration="200" name="fade">
-                            <form v-if="activeIndex.includes(index)" class="new-comment">
+                            <form v-show="activeIndex.includes(index)" class="new-comment">
                                 <textarea v-focus placeholder="写下你的评论"
                                           ref="content"
                                           v-model="subCommentList[index]"></textarea>
@@ -298,7 +298,16 @@
                 ],
                 activeIndex:[],
                 emojiIndex:[],
-                subCommentList:[]
+                subCommentList:[],
+                ID:[],
+                commentId:null
+            }
+        },
+        //遍历数据获得评论框的长度
+        mounted:function(){
+            for(var  i=0;i<this.comments.length;i++){
+                //创造一个长度等于数据长度的记录评论框id的数组
+                this.ID.push("");
             }
         },
         methods:{
@@ -309,45 +318,64 @@
             sendComment:function(){
                 console.log('发送');
             },
-            showSubCommentForm:function(value){
-                if(this.activeIndex.includes(value)){
+            showSubCommentForm:function(value,id,name){
+                //判断id是否与上一次点击的id相等
+                if(this.ID[value] == id){
+                    //第二次隐藏
+                    this.ID[value]="";
                     let index = this.activeIndex.indexOf(value);
                     this.activeIndex.splice(index,1);
-                }else{
+                    //判断这个评论框是否存在id
+                }else  if(this.ID[value]!=id){
+                    this.ID[value]=id;
+                    //第一次显示
                     //清除表单里面的内容
                     this.subCommentList[value]="";
                     //将这个表情关闭
                     this.emojiIndex =[];
-                    this.activeIndex.push(value);
-                }
-            },
-            //二级回复
-            showSubCommentAtName:function(nvalue,value,name){
-                if(this.oldIndex == nvalue){
-                  //第二次点击
-                  this.activeIndex.splice(this.activeIndex.indexOf(value),1);
-                  this.subCommentList[value]="";
-                  this.oldIndex=null;
-                }else{
-                  //第一次点击
-                    this.subCommentList[value]="";
-                    if(!this.activeIndex.includes(value)){
+                     if(!this.activeIndex.includes(value)){
                         this.activeIndex.push(value);
                     }
-                    this.emojiIndex=[];
-                    this.subCommentList[value] +=`@${name}`;
-                    this.oldIndex=nvalue;
+                    //聚焦一下
+                    // let num = this.activeIndex.indexOf(value);
+                    //判断是否存在用户名 如果存在@TA
+                    if(name != ""){
+                        this.subCommentList[value] +=`@${name} `;
+                    }
+                    this.$refs.content[this.activeIndex.indexOf(value)].focus();
+                }
+            },
+            //
+            //二级回复
+            showSubCommentAtName:function(index,id,name){
+                if(this.activeIndex.includes(index)){
+                   if(this.commentId ==id){
+                       //隐藏掉
+                       this.activeIndex.splice(this.activeIndex.indexOf(index),1);
+                       this.commentId ==null;
+                   }
+                    // 聚焦一下
+                    let  num  =this.activeIndex.indexOf(index);
+                    this.$refs.content[num].focus();
+                    //表单已经显示
+                        Vue.set(this.subCommentList,index,"@"+name+'');
+                        this.commentId =id;//记录一下上一次的id值
+                }else{
+                    //表单没有显示出来
+                        this.activeIndex.push(index);
                 }
             },
             sendSubCommentData:function(value){
                 let index = this.activeIndex.indexOf(value);
                 this.activeIndex.splice(index,1);
+                this.ID[value]='';
                 //value是下标
                 console.log(this.subCommentList[value]);
             },
             closeSubComment:function(value){
                 let index = this.activeIndex.indexOf(value);
                 this.activeIndex.splice(index,1);
+                this.ID[value]='';
             },
             showSubEmoji:function(value){
                 if(this.emojiIndex.includes(value)){
