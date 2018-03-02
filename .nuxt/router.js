@@ -3,30 +3,38 @@ import Router from 'vue-router'
 
 Vue.use(Router)
 
-const _98ccd8fa = () => import('..\\pages\\collectArticle.vue' /* webpackChunkName: "pages_collectArticle" */).then(m => m.default || m)
+const _5b453794 = () => import('..\\pages\\bookmarks.vue' /* webpackChunkName: "pages_bookmarks" */).then(m => m.default || m)
 const _28341424 = () => import('..\\pages\\sign-up.vue' /* webpackChunkName: "pages_sign-up" */).then(m => m.default || m)
-const _139dbdae = () => import('..\\pages\\sign-in.vue' /* webpackChunkName: "pages_sign-in" */).then(m => m.default || m)
-const _1492cb42 = () => import('..\\pages\\myHome.vue' /* webpackChunkName: "pages_myHome" */).then(m => m.default || m)
-const _5c22bb00 = () => import('..\\pages\\myHome\\index.vue' /* webpackChunkName: "pages_myHome_index" */).then(m => m.default || m)
-const _4aa2248d = () => import('..\\pages\\myHome\\comment.vue' /* webpackChunkName: "pages_myHome_comment" */).then(m => m.default || m)
-const _616f8784 = () => import('..\\pages\\myHome\\Article.vue' /* webpackChunkName: "pages_myHome_Article" */).then(m => m.default || m)
-const _4e5a1e7b = () => import('..\\pages\\myHome\\hot.vue' /* webpackChunkName: "pages_myHome_hot" */).then(m => m.default || m)
-const _b157b96e = () => import('..\\pages\\setting.vue' /* webpackChunkName: "pages_setting" */).then(m => m.default || m)
 const _c5795970 = () => import('..\\pages\\follow.vue' /* webpackChunkName: "pages_follow" */).then(m => m.default || m)
 const _86df7f8c = () => import('..\\pages\\follow\\index.vue' /* webpackChunkName: "pages_follow_index" */).then(m => m.default || m)
 const _d9f9fb90 = () => import('..\\pages\\follow\\specialRecome.vue' /* webpackChunkName: "pages_follow_specialRecome" */).then(m => m.default || m)
 const _9fc0222c = () => import('..\\pages\\follow\\authorRecome.vue' /* webpackChunkName: "pages_follow_authorRecome" */).then(m => m.default || m)
-const _14702a58 = () => import('..\\pages\\likeArticle.vue' /* webpackChunkName: "pages_likeArticle" */).then(m => m.default || m)
-const _92b351ac = () => import('..\\pages\\likeArticle\\index.vue' /* webpackChunkName: "pages_likeArticle_index" */).then(m => m.default || m)
-const _72cc5e68 = () => import('..\\pages\\likeArticle\\other.vue' /* webpackChunkName: "pages_likeArticle_other" */).then(m => m.default || m)
 const _0d5ad5ac = () => import('..\\pages\\news.vue' /* webpackChunkName: "pages_news" */).then(m => m.default || m)
 const _62cf7c18 = () => import('..\\pages\\news\\index.vue' /* webpackChunkName: "pages_news_index" */).then(m => m.default || m)
 const _204e6bd5 = () => import('..\\pages\\news\\request.vue' /* webpackChunkName: "pages_news_request" */).then(m => m.default || m)
 const _bd83117e = () => import('..\\pages\\news\\like.vue' /* webpackChunkName: "pages_news_like" */).then(m => m.default || m)
 const _546589db = () => import('..\\pages\\news\\follow.vue' /* webpackChunkName: "pages_news_follow" */).then(m => m.default || m)
 const _b0920566 = () => import('..\\pages\\news\\message.vue' /* webpackChunkName: "pages_news_message" */).then(m => m.default || m)
-const _991fd708 = () => import('..\\pages\\u\\_id.vue' /* webpackChunkName: "pages_u__id" */).then(m => m.default || m)
+const _d6dcea8c = () => import('..\\pages\\default.vue' /* webpackChunkName: "pages_default" */).then(m => m.default || m)
+const _46dbe6fa = () => import('..\\pages\\settings.vue' /* webpackChunkName: "pages_settings" */).then(m => m.default || m)
+const _7b669e1f = () => import('..\\pages\\settings\\profile.vue' /* webpackChunkName: "pages_settings_profile" */).then(m => m.default || m)
+const _2bafc4b8 = () => import('..\\pages\\settings\\basic.vue' /* webpackChunkName: "pages_settings_basic" */).then(m => m.default || m)
+const _2d42efe6 = () => import('..\\pages\\settings\\misc.vue' /* webpackChunkName: "pages_settings_misc" */).then(m => m.default || m)
+const _139dbdae = () => import('..\\pages\\sign-in.vue' /* webpackChunkName: "pages_sign-in" */).then(m => m.default || m)
+const _1188d1b2 = () => import('..\\pages\\notify\\follows.vue' /* webpackChunkName: "pages_notify_follows" */).then(m => m.default || m)
+const _6c6ddbb8 = () => import('..\\pages\\notify\\requests.vue' /* webpackChunkName: "pages_notify_requests" */).then(m => m.default || m)
+const _acb1cf2a = () => import('..\\pages\\notify\\chats.vue' /* webpackChunkName: "pages_notify_chats" */).then(m => m.default || m)
+const _a8f20f58 = () => import('..\\pages\\notify\\comments.vue' /* webpackChunkName: "pages_notify_comments" */).then(m => m.default || m)
+const _3f55cb8c = () => import('..\\pages\\notify\\likes.vue' /* webpackChunkName: "pages_notify_likes" */).then(m => m.default || m)
+const _ebfae58a = () => import('..\\pages\\collection\\new.vue' /* webpackChunkName: "pages_collection_new" */).then(m => m.default || m)
+const _5dfbd241 = () => import('..\\pages\\note\\_id.vue' /* webpackChunkName: "pages_note__id" */).then(m => m.default || m)
+const _764cb855 = () => import('..\\pages\\collection\\_id.vue' /* webpackChunkName: "pages_collection__id" */).then(m => m.default || m)
 const _23fe423e = () => import('..\\pages\\p\\_id.vue' /* webpackChunkName: "pages_p__id" */).then(m => m.default || m)
+const _991fd708 = () => import('..\\pages\\u\\_id.vue' /* webpackChunkName: "pages_u__id" */).then(m => m.default || m)
+const _1092b3a0 = () => import('..\\pages\\users\\_id\\like.vue' /* webpackChunkName: "pages_users__id_like" */).then(m => m.default || m)
+const _96ba0448 = () => import('..\\pages\\users\\_id\\followers.vue' /* webpackChunkName: "pages_users__id_followers" */).then(m => m.default || m)
+const _50979e67 = () => import('..\\pages\\users\\_id\\collection.vue' /* webpackChunkName: "pages_users__id_collection" */).then(m => m.default || m)
+const _fe812350 = () => import('..\\pages\\users\\_id\\following.vue' /* webpackChunkName: "pages_users__id_following" */).then(m => m.default || m)
 const _1ce75dea = () => import('..\\pages\\index.vue' /* webpackChunkName: "pages_index" */).then(m => m.default || m)
 
 
@@ -77,50 +85,14 @@ export function createRouter () {
     scrollBehavior,
     routes: [
 		{
-			path: "/collectArticle",
-			component: _98ccd8fa,
-			name: "collectArticle"
+			path: "/bookmarks",
+			component: _5b453794,
+			name: "bookmarks"
 		},
 		{
 			path: "/sign-up",
 			component: _28341424,
 			name: "sign-up"
-		},
-		{
-			path: "/sign-in",
-			component: _139dbdae,
-			name: "sign-in"
-		},
-		{
-			path: "/myHome",
-			component: _1492cb42,
-			children: [
-				{
-					path: "",
-					component: _5c22bb00,
-					name: "myHome"
-				},
-				{
-					path: "comment",
-					component: _4aa2248d,
-					name: "myHome-comment"
-				},
-				{
-					path: "Article",
-					component: _616f8784,
-					name: "myHome-Article"
-				},
-				{
-					path: "hot",
-					component: _4e5a1e7b,
-					name: "myHome-hot"
-				}
-			]
-		},
-		{
-			path: "/setting",
-			component: _b157b96e,
-			name: "setting"
 		},
 		{
 			path: "/follow",
@@ -140,22 +112,6 @@ export function createRouter () {
 					path: "authorRecome",
 					component: _9fc0222c,
 					name: "follow-authorRecome"
-				}
-			]
-		},
-		{
-			path: "/likeArticle",
-			component: _14702a58,
-			children: [
-				{
-					path: "",
-					component: _92b351ac,
-					name: "likeArticle"
-				},
-				{
-					path: "other",
-					component: _72cc5e68,
-					name: "likeArticle-other"
 				}
 			]
 		},
@@ -191,14 +147,106 @@ export function createRouter () {
 			]
 		},
 		{
-			path: "/u/:id?",
-			component: _991fd708,
-			name: "u-id"
+			path: "/default",
+			component: _d6dcea8c,
+			name: "default"
+		},
+		{
+			path: "/settings",
+			component: _46dbe6fa,
+			name: "settings",
+			children: [
+				{
+					path: "profile",
+					component: _7b669e1f,
+					name: "settings-profile"
+				},
+				{
+					path: "basic",
+					component: _2bafc4b8,
+					name: "settings-basic"
+				},
+				{
+					path: "misc",
+					component: _2d42efe6,
+					name: "settings-misc"
+				}
+			]
+		},
+		{
+			path: "/sign-in",
+			component: _139dbdae,
+			name: "sign-in"
+		},
+		{
+			path: "/notify/follows",
+			component: _1188d1b2,
+			name: "notify-follows"
+		},
+		{
+			path: "/notify/requests",
+			component: _6c6ddbb8,
+			name: "notify-requests"
+		},
+		{
+			path: "/notify/chats",
+			component: _acb1cf2a,
+			name: "notify-chats"
+		},
+		{
+			path: "/notify/comments",
+			component: _a8f20f58,
+			name: "notify-comments"
+		},
+		{
+			path: "/notify/likes",
+			component: _3f55cb8c,
+			name: "notify-likes"
+		},
+		{
+			path: "/collection/new",
+			component: _ebfae58a,
+			name: "collection-new"
+		},
+		{
+			path: "/note/:id?",
+			component: _5dfbd241,
+			name: "note-id"
+		},
+		{
+			path: "/collection/:id?",
+			component: _764cb855,
+			name: "collection-id"
 		},
 		{
 			path: "/p/:id?",
 			component: _23fe423e,
 			name: "p-id"
+		},
+		{
+			path: "/u/:id?",
+			component: _991fd708,
+			name: "u-id"
+		},
+		{
+			path: "/users/:id?/like",
+			component: _1092b3a0,
+			name: "users-id-like"
+		},
+		{
+			path: "/users/:id?/followers",
+			component: _96ba0448,
+			name: "users-id-followers"
+		},
+		{
+			path: "/users/:id?/collection",
+			component: _50979e67,
+			name: "users-id-collection"
+		},
+		{
+			path: "/users/:id?/following",
+			component: _fe812350,
+			name: "users-id-following"
 		},
 		{
 			path: "/",

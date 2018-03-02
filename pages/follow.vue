@@ -4,9 +4,35 @@
 		<div class="content my-container">
 			<div class="row">
 				<div class="aside">
-					<a class="change-type">全部关注</a>
+					<div>
+					    <a class="change-type">
+							全部关注
+					    </a>
+						<a href="javascript:void(0)">
+							<i ></i>
+							<span>添加关注</span>
+						</a>
+					</div>
 					<ul class="js-subscription-list">
 						<li class="router-link-exact-active active">
+							<a href="javascript:void(0)" class="wrap">
+								<div class="avatar">
+									<img src="../assets/img/addfollow.png" alt="">
+								</div>
+								<div class="name">添加关注</div>
+							</a>
+							<a href="javascript:void(0)" class="wrap">
+								<div class="avatar">
+									<img src="../assets/img/addfollow.png" alt="">
+								</div>
+								<div class="name">添加关注</div>
+							</a>
+							<a href="javascript:void(0)" class="wrap">
+								<div class="avatar">
+									<img src="../assets/img/addfollow.png" alt="">
+								</div>
+								<div class="name">添加关注</div>
+							</a>
 							<a href="javascript:void(0)" class="wrap">
 								<div class="avatar">
 									<img src="../assets/img/addfollow.png" alt="">

@@ -12,10 +12,10 @@
                     写文章
                 </nuxt-link>
                 <!--登录和注册按钮-->
-                <!--<nuxt-link to="/sign-up" class="btn sign-up">注册</nuxt-link>-->
-                <!--<nuxt-link to="/sign-in" class="btn sign-in">登录</nuxt-link>-->
+                <!--<nuxt-link to="/sign-up" class="btn sign-up">注册</nuxt-link>
+                <nuxt-link to="/sign-in" class="btn sign-in">登录</nuxt-link>-->
                 <!--如果用户登录,那么显示用户头像-->
-                <div style="display: block" class="user" @mouseover="userShow=true" @mouseleave="userShow=false">
+                <div class="user" @mouseover="userShow=true" @mouseleave="userShow=false">
                     <div class="drop-down">
                         <nuxt-link class="avatar" to="/users">
                             <img src="../assets/img/default-avatar.jpg">
@@ -24,31 +24,31 @@
                     <div class="drop-menu" v-show="userShow">
                         <ul>
                             <li>
-                                <nuxt-link to="/myHome">
+                                <nuxt-link to="/u/123">
                                     <i class="fa fa-home"></i>
                                     我的主页
                                 </nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link to="/collectArticle">
+                                <nuxt-link to="/bookmarks">
                                     <i class="fa fa-bookmark"></i>
                                     收藏的文章
                                 </nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link to="/">
+                                <nuxt-link to="/users/123/like">
                                     <i class="fa fa-heart"></i>
                                     喜欢的文章
                                 </nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link to="/">
+                                <nuxt-link to="/settings/basic">
                                     <i class="fa fa-cog"></i>
                                     设置
                                 </nuxt-link>
                             </li>
                             <li>
-                                <nuxt-link to="/">
+                                <nuxt-link to="/logout">
                                     <i class="fa fa-sign-out"></i>
                                     退出
                                 </nuxt-link>
@@ -59,51 +59,51 @@
                 <!--导航-->
                 <div class="my-container">
                     <ul class="nav-list">
-                        <li>
-                            <nuxt-link active-class="active" to="/" exact>
+                        <li class="active">
+                            <nuxt-link  to="/">
                                 <i class="fa fa-compass"></i>
                                 <span>发现</span>
                             </nuxt-link>
                         </li>
                         <li>
-                            <nuxt-link active-class="active" to="/follow">
+                            <nuxt-link to="/follow">
                                 <i class="fa fa-book"></i>
                                 <span>关注</span>
                             </nuxt-link>
                         </li>
                         <li class="notify" @mouseover="notifyShow=true" @mouseleave="notifyShow=false">
-                            <nuxt-link active-class="active" to="/news">
+                            <nuxt-link to="/news">
                                 <i class="fa fa-bell-o"></i>
                                 <span>消息</span>
                             </nuxt-link>
                             <div class="drop-menu" v-show="notifyShow">
                                 <ul>
                                     <li>
-                                        <nuxt-link to="/news">
+                                        <nuxt-link to="/notify/comments">
                                             <i class="fa fa-comment-o"></i>
                                             评论
                                         </nuxt-link>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/news/message">
+                                        <nuxt-link to="/notify/chats">
                                             <i class="fa fa-envelope-open-o"></i>
                                             简信
                                         </nuxt-link>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/news/request">
+                                        <nuxt-link to="/notify/requests">
                                             <i class="fa fa-upload"></i>
                                             投稿请求
                                         </nuxt-link>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/news/like">
+                                        <nuxt-link to="/notify/likes">
                                             <i class="fa fa-heart-o"></i>
                                             喜欢和赞
                                         </nuxt-link>
                                     </li>
                                     <li>
-                                        <nuxt-link to="/news/follow">
+                                        <nuxt-link to="/notify/follows">
                                             <i class="fa fa-user-o"></i>
                                             关注
                                         </nuxt-link>
@@ -136,7 +136,6 @@
         },
         name:'myHeader'//给组件命名
     }
-
 </script>
 <style scope>
     nav{
@@ -239,6 +238,8 @@
         min-width:160px;
         box-shadow: 0 0 8px rgba(0,0,0,.1);
         font-size:15px;
+        z-index:999;
+        background:#fff;
     }
     nav .user .drop-menu ul {
         padding:10px 0;
@@ -286,8 +287,9 @@
         text-align:center;
         margin-top:5px;
     }
-    nav .nav-list>li>a.active {
-        color:#ea6f5a!important;
+    nav .nav-list>li.active {
+        color:#ea6f5a;
+        background:#fff;
     }
     nav .nav-list .search {
         padding-left:15px;
